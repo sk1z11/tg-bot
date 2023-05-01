@@ -21,7 +21,7 @@ def get_weather(message):
         temp = int(data["main"]["temp"])
         temp_fl = int(data["main"]["feels_like"])
         wind_sp = int(data["wind"]["speed"])
-        cur_data = str(datetime.datetime.fromtimestamp(data["dt"]))
+        cur_data = str(datetime.datetime.fromtimestamp(data["dt"])) #выводится текущее время, но немного некорректно
         bot.send_message(message.chat.id, f'{cur_data}\nТемпература на улице: {temp} °C\nОщущается как: {temp_fl}°C\nСкорость ветра: {wind_sp} м/c')
         emoji = '☀' if temp > 5.0 else '⛅'
         bot.send_message(message.chat.id, emoji)
